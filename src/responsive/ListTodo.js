@@ -1,7 +1,8 @@
 import React from "react";
 import AddTodo from "./AddTodo";
 import { toast } from "react-toastify";
-
+import { Button } from "antd";
+import { Card } from "antd";
 class ListTodo extends React.Component {
   state = {
     listTodos: [
@@ -70,56 +71,87 @@ class ListTodo extends React.Component {
     let { listTodos, editTodo } = this.state;
     let isEmptyObj = Object.keys(editTodo).length === 0;
     return (
-      <div className="list-todo-container">
-        <AddTodo addNewTodo={this.addNewTodo} />
-        <div className="list-todo-content">
-          {listTodos &&
-            listTodos.length > 0 &&
-            listTodos.map((item, index) => {
-              return (
-                <div className="todo-child" key={item.id}>
-                  {isEmptyObj === true ? (
-                    <span>
-                      {index + 1} - {item.title}
-                    </span>
-                  ) : (
-                    <>
-                      {editTodo.id === item.id ? (
-                        <span>
-                          {index + 1} -{" "}
-                          <input
-                            onChange={(event) =>
-                              this.handleOnchaneEditTodo(event)
-                            }
-                            value={editTodo.title}
-                          />
-                        </span>
-                      ) : (
-                        <span>
-                          {index + 1} - {item.title}
-                        </span>
-                      )}
-                    </>
-                  )}
-                  <button
+      <center>
+        <div className="list-todo-container">
+          <Card
+            title={<AddTodo addNewTodo={this.addNewTodo} />}
+            bordered={true}
+            style={{
+              width: 550,
+              textAlign: "center",
+            }}
+          >
+            <p>
+              <div className="list-todo-content">
+                {listTodos &&
+                  listTodos.length > 0 &&
+                  listTodos.map((item, index) => {
+                    return (
+                      <div className="todo-child" key={item.id}>
+                        {isEmptyObj === true ? (
+                          <span>
+                            {index + 1} - {item.title}
+                          </span>
+                        ) : (
+                          <>
+                            {editTodo.id === item.id ? (
+                              <span>
+                                {index + 1} -{" "}
+                                <input
+                                  onChange={(event) =>
+                                    this.handleOnchaneEditTodo(event)
+                                  }
+                                  value={editTodo.title}
+                                />
+                              </span>
+                            ) : (
+                              <span>
+                                {index + 1} - {item.title}
+                              </span>
+                            )}
+                          </>
+                        )}
+                        <Button
+                          type="primary"
+                          size="small"
+                          className="edit"
+                          onClick={() => this.handleEditTodo(item)}
+                        >
+                          {isEmptyObj === false && editTodo.id === item.id
+                            ? "Save"
+                            : "Edit"}
+                        </Button>
+                        {/* <button
                     className="edit"
                     onClick={() => this.handleEditTodo(item)}
                   >
                     {isEmptyObj === false && editTodo.id === item.id
                       ? "Save"
                       : "Edit"}
-                  </button>
-                  <button
+                  </button> */}
+                        <Button
+                          type="primary"
+                          size="small"
+                          className="delete"
+                          onClick={() => this.handleDeleteTodo(item)}
+                        >
+                          Delete
+                        </Button>
+                        {/* <button
                     className="delete"
                     onClick={() => this.handleDeleteTodo(item)}
                   >
                     Delete
-                  </button>
-                </div>
-              );
-            })}
+                  </button> */}
+                      </div>
+                    );
+                  })}
+              </div>
+            </p>
+          </Card>
+          {/* <AddTodo addNewTodo={this.addNewTodo} /> */}
         </div>
-      </div>
+      </center>
     );
   }
 }

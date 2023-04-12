@@ -1,4 +1,6 @@
 import React from "react";
+import { Button } from "antd";
+import { Input } from "antd";
 
 class AddTodo extends React.Component {
   state = {
@@ -10,10 +12,11 @@ class AddTodo extends React.Component {
       title: event.target.value,
     });
   };
+
   handleAddTodo = () => {
-    if(!this.state.title){
-      alert('missing title')
-      return
+    if (!this.state.title) {
+      alert("missing title");
+      return;
     }
     let todo = {
       id: Math.floor(Math.random() * 10000),
@@ -26,18 +29,24 @@ class AddTodo extends React.Component {
     let { title } = this.state;
     return (
       <div className="add-todo">
-        <input
+        <Input
+          style={{ width: 220 }}
+          value={title}
+          onChange={(event) => this.handleOnChangeTitle(event)}
+        ></Input>
+        {/* <input
           type="text"
           value={title}
           onChange={(event) => this.handleOnChangeTitle(event)}
-        />
-        <button
-          type="button"
-          className="add"
+        /> */}
+        <Button
+          type="primary"
+          size="middle"
           onClick={() => this.handleAddTodo()}
         >
           Add
-        </button>
+        </Button>
+        {/* <button type="button" className="add" onClick={() => this.handleAddTodo()}>Add</button> */}
       </div>
     );
   }
