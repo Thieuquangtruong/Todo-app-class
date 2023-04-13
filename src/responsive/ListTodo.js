@@ -9,6 +9,7 @@ class ListTodo extends React.Component {
       { id: "todo1", title: "doing homework" },
       { id: "todo2", title: "making video" },
       { id: "todo3", title: "fixing bugs" },
+      { id: "todo4", title: "lucky" },
     ],
     editTodo: {},
   };
@@ -79,6 +80,7 @@ class ListTodo extends React.Component {
             style={{
               width: 550,
               textAlign: "center",
+             
             }}
           >
             <p>
@@ -111,7 +113,7 @@ class ListTodo extends React.Component {
                             )}
                           </>
                         )}
-                        <Button
+                        <Button style={{backgroundColor:"orange"}}
                           type="primary"
                           size="small"
                           className="edit"
@@ -130,6 +132,7 @@ class ListTodo extends React.Component {
                       : "Edit"}
                   </button> */}
                         <Button
+                        style={{backgroundColor:"red"}}
                           type="primary"
                           size="small"
                           className="delete"
