@@ -3,6 +3,7 @@ import AddTodo from "./AddTodo";
 import { toast } from "react-toastify";
 import { Button } from "antd";
 import { Card } from "antd";
+import { Input } from "antd";
 class ListTodo extends React.Component {
   state = {
     listTodos: [
@@ -80,16 +81,16 @@ class ListTodo extends React.Component {
             style={{
               width: 550,
               textAlign: "center",
-             
+        
             }}
-          >
-            <p>
+          >       
               <div className="list-todo-content">
                 {listTodos &&
                   listTodos.length > 0 &&
                   listTodos.map((item, index) => {
                     return (
-                      <div className="todo-child" key={item.id}>
+                      <p style={{borderBottom: '1px solid grey',paddingBottom : "10px"}}>
+                      <div  key={item.id}>
                         {isEmptyObj === true ? (
                           <span>
                             {index + 1} - {item.title}
@@ -99,12 +100,14 @@ class ListTodo extends React.Component {
                             {editTodo.id === item.id ? (
                               <span>
                                 {index + 1} -{" "}
-                                <input
+                                <Input
+                                  placeholder=""
                                   onChange={(event) =>
                                     this.handleOnchaneEditTodo(event)
                                   }
                                   value={editTodo.title}
-                                />
+                                  style={{ width: 200 }}
+                                ></Input>
                               </span>
                             ) : (
                               <span>
@@ -113,7 +116,8 @@ class ListTodo extends React.Component {
                             )}
                           </>
                         )}
-                        <Button style={{backgroundColor:"orange"}}
+                        <Button
+                          style={{ backgroundColor: "orange" }}
                           type="primary"
                           size="small"
                           className="edit"
@@ -132,7 +136,7 @@ class ListTodo extends React.Component {
                       : "Edit"}
                   </button> */}
                         <Button
-                        style={{backgroundColor:"red"}}
+                          style={{ backgroundColor: "red" }}
                           type="primary"
                           size="small"
                           className="delete"
@@ -147,10 +151,11 @@ class ListTodo extends React.Component {
                     Delete
                   </button> */}
                       </div>
+                      </p>
                     );
                   })}
               </div>
-            </p>
+      
           </Card>
           {/* <AddTodo addNewTodo={this.addNewTodo} /> */}
         </div>

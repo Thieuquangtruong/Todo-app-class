@@ -8,6 +8,7 @@
   pointer-events: none;
 }
 
+h1 { font-family: 'Droid serif', serif; font-size: 36px; font-weight: 400; font-style: italic; line-height: 44px; margin: 0 0 12px; text-align: center; }
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -35,11 +36,7 @@
 
 } */
 
-.todo-child {
-  height: 30px;
-  border-bottom: 1px solid grey;
-  margin-top: 10px;
-}
+
 
 button.edit {
   margin: 0 10px;

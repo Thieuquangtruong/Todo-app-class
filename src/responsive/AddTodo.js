@@ -39,13 +39,14 @@ class AddTodo extends React.Component {
           value={title}
           onChange={(event) => this.handleOnChangeTitle(event)}
         /> */}
+     
         <Button
-          style={{ backgroundColor: "#009900" }}
+        
+          style={{ backgroundColor: "#009900",margin:10 }}
           type="primary"
           size="middle"
           onClick={() => this.handleAddTodo()}
-        >
-          Add
+        >Add
         </Button>
         {/* <button type="button" className="add" onClick={() => this.handleAddTodo()}>Add</button> */}
       </div>

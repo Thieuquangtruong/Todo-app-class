@@ -3,13 +3,13 @@ import "./App.css";
 import ListTodo from "./responsive/ListTodo";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Card } from "antd";
+
 
 function App() {
   return (
     <div className="App">
       <img src={logo} className="App-logo" alt="logo" />
-      <p>Simple Todo Apps with React.js</p>
+      <h1>Simple Todo Apps with React.js</h1>
       <ListTodo />
         <ToastContainer
           position="top-right"
